@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Employer Brand Pulse — Baltic Pricing Calculator</title>
+<style>
+
+:root{--gr:#232323;--gr2:#2a2a2a;--gr3:#323232;--line:#3d3d3d;--yl:#EBFF41;--mint:#3BEC9D;--wh:#fff;--mut:#b6b6b6;--mut2:#8a8a8a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--gr);color:var(--wh);font-family:'Inter',-apple-system,'Segoe UI',Arial,sans-serif;font-size:14px;line-height:1.45;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.disp{font-family:'Power Grotesk','Inter',sans-serif;font-weight:700;letter-spacing:-.01em}
+.wrap{max-width:1080px;margin:0 auto;padding:34px 26px 60px}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:8px}
+.logo{font-weight:800;font-size:22px;letter-spacing:-.02em;color:var(--wh)}
+h1{font-size:30px;line-height:1.05;margin:14px 0 6px}
+h1 .y{color:var(--yl)}
+.sub{color:var(--mut);font-size:13.5px;max-width:760px}
+section{margin-top:30px}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--mut2);text-transform:uppercase;margin-bottom:12px}
+.card{background:var(--gr2);border:1px solid var(--line);border-radius:6px;padding:18px 20px}
+.grid-rate{display:grid;grid-template-columns:1fr auto;gap:8px 18px;align-items:center}
+.grid-rate label{color:var(--mut);font-size:13px}
+input[type=number]{width:104px;background:var(--gr);border:1px solid var(--line);color:var(--yl);font-family:'Power Grotesk',sans-serif;font-weight:700;font-size:15px;text-align:right;padding:6px 9px;border-radius:4px}
+input[type=number]:focus{outline:none;border-color:var(--yl)}
+.presets{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:6px}
+.pbtn{background:var(--gr2);border:1px solid var(--line);color:var(--wh);padding:9px 14px;border-radius:4px;cursor:pointer;font-size:13px;font-weight:600;transition:.15s}
+.pbtn:hover{border-color:var(--yl)}
+.pbtn.active{background:var(--yl);color:var(--gr);border-color:var(--yl)}
+.pbtn small{display:block;font-weight:400;font-size:10.5px;color:var(--mut2);margin-top:2px}
+.pbtn.active small{color:#5a5a2a}
+table{width:100%;border-collapse:collapse}
+.builder th,.builder td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:center;font-size:13px}
+.builder th{color:var(--mut2);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+.builder td.mkt{text-align:left;font-weight:700}
+.builder td.tot{text-align:right;font-family:'Power Grotesk',sans-serif;font-size:15px;color:var(--yl)}
+.builder input[type=number]{width:58px;font-size:14px;padding:5px 6px}
+.chk{width:18px;height:18px;accent-color:var(--yl);cursor:pointer}
+.qty{width:52px}
+.totbar{display:flex;justify-content:space-between;align-items:center;background:var(--yl);color:var(--gr);border-radius:6px;padding:16px 22px;margin-top:16px}
+.totbar .lab{font-weight:700;font-size:15px}
+.totbar .val{font-family:'Power Grotesk',sans-serif;font-size:32px;font-weight:700}
+.vatline{display:flex;justify-content:space-between;color:var(--mut);font-size:12px;font-style:italic;padding:8px 22px 0}
+.cmp th,.cmp td{padding:9px 10px;border-bottom:1px solid var(--line);font-size:13px;text-align:right}
+.cmp th{color:var(--mut2);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.05em;text-align:right}
+.cmp th:first-child,.cmp td:first-child{text-align:left}
+.cmp .rec{color:var(--gr);background:var(--mint)}
+.cmp tr.total td{font-family:'Power Grotesk',sans-serif;color:var(--yl);font-size:15px;border-top:2px solid var(--line)}
+.cmp tr.total td.rec{color:var(--gr)}
+.notecards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+.nc{background:var(--gr2);border:1px solid var(--line);border-radius:6px;padding:13px 15px}
+.nc b{color:var(--yl);font-size:13px}
+.nc p{color:var(--mut);font-size:12px;margin-top:4px}
+.seb th,.seb td{padding:8px 10px;border-bottom:1px solid var(--line);font-size:13px;text-align:right}
+.seb th{color:var(--mut2);font-weight:600;font-size:11px;text-transform:uppercase;text-align:right}
+.seb th:first-child,.seb td:first-child,.seb td.l{text-align:left}
+.seb tr.total td{font-family:'Power Grotesk',sans-serif;color:var(--yl);border-top:2px solid var(--line)}
+.foot{margin-top:34px;color:var(--mut2);font-size:11.5px;line-height:1.6;border-top:1px solid var(--line);padding-top:16px}
+.foot b{color:var(--mut)}
+.disc{color:var(--mut2);font-size:11px;margin-top:6px}
+@media(max-width:720px){.notecards{grid-template-columns:1fr}h1{font-size:24px}}
+</style></head>
+<body><div class="wrap">
+<header>
+  <span class="logo">civitta</span>
+  <div style="color:var(--mut2);font-size:11px;text-align:right;letter-spacing:.08em">EMPLOYER BRAND PULSE · 2026</div>
+</header>
+<h1>Baltic pricing calculator — <span class="y">3 markets, your scope</span></h1>
+<p class="sub">All prices in EUR, excl. VAT, based on the Civitta 2026 price list (Full report / audience). Every figure below is editable — change the rate card and everything recalculates.</p>
+
+<section>
+  <div class="eyebrow">Price list — editable</div>
+  <div class="card grid-rate">
+    <label>Audience insights (01)</label><input type="number" id="r_aud" value="500">
+    <label>Brand position — up to 10 competitors (02)</label><input type="number" id="r_pos" value="1500">
+    <label>Brand image &amp; culture — up to 5 competitors (03)</label><input type="number" id="r_img" value="2500">
+    <label>Company momentum / progress (04)</label><input type="number" id="r_mom" value="1500">
+    <label>Full Hand — all 4 modules, 1 audience</label><input type="number" id="r_full" value="6000">
+    <label>Extra audience (each) — list 1,500–2,000</label><input type="number" id="r_extra" value="1750">
+    <label>Cross-market Baltic add-on (custom, ~)</label><input type="number" id="r_addon" value="2000">
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Presets — one click sets the builder below</div>
+  <div class="presets" id="presets">
+    <button class="pbtn" data-p="v1">V1 · Lean<small>LT anchor + light baseline</small></button>
+    <button class="pbtn active" data-p="v2">V2 · Balanced &#9733;<small>recommended</small></button>
+    <button class="pbtn" data-p="v3">V3 · Deep<small>full Baltic deep dive</small></button>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Build your own scenario</div>
+  <div class="card" style="padding:6px 14px">
+  <table class="builder"><thead><tr>
+    <th style="text-align:left">Market</th><th>Full Hand<br>(# aud.)</th><th>Extra<br>audiences</th>
+    <th>Position</th><th>Image</th><th>Momentum</th><th>Audience</th><th style="text-align:right">Market total</th>
+  </tr></thead><tbody id="btbody"></tbody></table>
+  </div>
+  <div class="totbar"><span class="lab">TOTAL — excl. VAT</span><span class="val" id="grand">–</span></div>
+  <div class="vatline"><span id="vatnote">LT incl. 21% VAT · LV &amp; EE reverse charge 0%</span><span id="vatval"></span></div>
+</section>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const rate=()=>({aud:+$('r_aud').value||0,pos:+$('r_pos').value||0,img:+$('r_img').value||0,mom:+$('r_mom').value||0,full:+$('r_full').value||0,extra:+$('r_extra').value||0,addon:+$('r_addon').value||0});
+const eur=v=>Math.round(v).toLocaleString('en-US')+' €';
+const markets=[['LT','Lithuania (LT)'],['LV','Latvia (LV)'],['EE','Estonia (EE)']];
+let st={LT:{fh:1,ea:1,pos:0,img:0,mom:0,au:0},LV:{fh:1,ea:0,pos:0,img:0,mom:0,au:0},EE:{fh:1,ea:0,pos:0,img:0,mom:0,au:0},addon:1};
+const presets={
+ v1:{LT:{fh:1,ea:0,pos:0,img:0,mom:0,au:0},LV:{fh:0,ea:0,pos:1,img:1,mom:0,au:0},EE:{fh:0,ea:0,pos:1,img:1,mom:0,au:0},addon:0},
+ v2:{LT:{fh:1,ea:1,pos:0,img:0,mom:0,au:0},LV:{fh:1,ea:0,pos:0,img:0,mom:0,au:0},EE:{fh:1,ea:0,pos:0,img:0,mom:0,au:0},addon:1},
+ v3:{LT:{fh:1,ea:2,pos:0,img:0,mom:0,au:0},LV:{fh:1,ea:1,pos:0,img:0,mom:0,au:0},EE:{fh:1,ea:1,pos:0,img:0,mom:0,au:0},addon:1}
+};
+function mktTotal(m){const r=rate();const s=st[m];return s.fh*r.full+s.ea*r.extra+s.pos*r.pos+s.img*r.img+s.mom*r.mom+s.au*r.aud;}
+function renderBuilder(){
+ const tb=$('btbody');tb.innerHTML='';
+ markets.forEach(([k,name])=>{
+  const s=st[k];
+  const tr=document.createElement('tr');
+  tr.innerHTML=`<td class="mkt">${name}</td>
+   <td><input type="number" class="qty" min="0" data-m="${k}" data-f="fh" value="${s.fh}"></td>
+   <td><input type="number" class="qty" min="0" data-m="${k}" data-f="ea" value="${s.ea}"></td>
+   <td><input type="checkbox" class="chk" data-m="${k}" data-f="pos" ${s.pos?'checked':''}></td>
+   <td><input type="checkbox" class="chk" data-m="${k}" data-f="img" ${s.img?'checked':''}></td>
+   <td><input type="checkbox" class="chk" data-m="${k}" data-f="mom" ${s.mom?'checked':''}></td>
+   <td><input type="checkbox" class="chk" data-m="${k}" data-f="au" ${s.au?'checked':''}></td>
+   <td class="tot" id="mt_${k}">${eur(mktTotal(k))}</td>`;
+  tb.appendChild(tr);
+ });
+ const tr=document.createElement('tr');
+ tr.innerHTML=`<td class="mkt">Cross-market add-on</td>
+   <td colspan="5" style="text-align:left;color:var(--mut2);font-size:11.5px">brand comparison across 3 markets — shared strengths vs local differences</td>
+   <td><input type="checkbox" class="chk" data-m="addon" data-f="on" ${st.addon?'checked':''}></td>
+   <td class="tot" id="mt_addon">${eur(st.addon*rate().addon)}</td>`;
+ tb.appendChild(tr);
+ tb.querySelectorAll('input').forEach(inp=>inp.addEventListener('input',e=>{
+   const m=e.target.dataset.m,f=e.target.dataset.f;
+   if(m==='addon'){st.addon=e.target.checked?1:0;}
+   else if(e.target.type==='checkbox'){st[m][f]=e.target.checked?1:0;}
+   else{st[m][f]=Math.max(0,+e.target.value||0);}
+   recompute();
+ }));
+}
+function recompute(){
+ markets.forEach(([k])=>{$('mt_'+k).textContent=eur(mktTotal(k));});
+ $('mt_addon').textContent=eur(st.addon*rate().addon);
+ const grand=mktTotal('LT')+mktTotal('LV')+mktTotal('EE')+st.addon*rate().addon;
+ $('grand').textContent=eur(grand);
+ const vat=mktTotal('LT')*0.21;
+ $('vatval').textContent='incl. VAT: '+eur(grand+vat);
+}
+$('presets').addEventListener('click',e=>{
+ const btn=e.target.closest('.pbtn');if(!btn)return;
+ document.querySelectorAll('.pbtn').forEach(x=>x.classList.remove('active'));btn.classList.add('active');
+ const p=btn.dataset.p;
+ st=JSON.parse(JSON.stringify(presets[p]));
+ renderBuilder();recompute();
+});
+document.querySelectorAll('.grid-rate input').forEach(i=>i.addEventListener('input',recompute));
+renderBuilder();recompute();
+</script>
+</body></html>
